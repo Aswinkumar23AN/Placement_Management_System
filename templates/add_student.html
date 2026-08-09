@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="pms-panel pms-panel-elevated pms-panel-medium">
+
+    <div class="pms-panel-heading pms-tone-primary pms-text-center">
+        <h2>Add Student</h2>
+    </div>
+
+    <div class="pms-panel-content pms-form-area">
+
+        <form action="{{ url_for('add_student') }}" method="POST">
+
+            <div class="pms-field">
+                <label class="pms-field-label">Roll Number</label>
+                <input
+                    type="number"
+                    name="rollno"
+                    class="pms-input"
+                    placeholder="Enter Roll Number"
+                    required>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Student Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    class="pms-input"
+                    placeholder="Enter Student Name"
+                    required>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Department</label>
+
+                <select
+                    name="department"
+                    class="pms-select"
+                    required>
+
+                    <option value="">Select Department</option>
+
+                    <option>CSE</option>
+                    <option>IT</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>MECH</option>
+                    <option>CIVIL</option>
+
+                </select>
+
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">CGPA</label>
+
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    max="10"
+                    name="cgpa"
+                    class="pms-input"
+                    placeholder="Enter CGPA"
+                    required>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Skills</label>
+
+                <textarea
+                    name="skills"
+                    rows="3"
+                    class="pms-input"
+                    placeholder="Example: Python, SQL, Java"></textarea>
+
+            </div>
+
+            <div class="pms-field">
+
+                <label class="pms-field-label">
+                    Placement Status
+                </label>
+
+                <select
+                    name="placement_status"
+                    class="pms-select"
+                    required>
+
+                    <option value="">Select Status</option>
+
+                    <option>Placed</option>
+                    <option>Not Placed</option>
+
+                </select>
+
+            </div>
+
+            <button
+                type="submit"
+                class="pms-btn pms-btn-success pms-btn-large pms-btn-full">
+
+                Add Student
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

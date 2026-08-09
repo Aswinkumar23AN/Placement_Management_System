@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="pms-panel pms-panel-narrow">
+
+    <div class="pms-panel-heading pms-tone-danger pms-text-center">
+        <h2>
+            Delete Student
+        </h2>
+    </div>
+
+    <div class="pms-panel-content pms-form-area">
+
+        <form method="POST">
+
+            <div class="pms-field">
+
+                <label class="pms-field-label">
+                    Roll Number
+                </label>
+
+                <input
+                    type="number"
+                    name="rollno"
+                    class="pms-input"
+                    placeholder="Enter Roll Number"
+                    required>
+
+            </div>
+
+            <button class="pms-btn pms-btn-danger pms-btn-full">
+
+                Delete Student
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
