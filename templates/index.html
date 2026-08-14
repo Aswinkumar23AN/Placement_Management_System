@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="pms-page-title">
+    <h1>Placement Management System</h1>
+    <p>Student Placement Portal</p>
+</div>
+
+<div class="pms-panel-grid">
+
+    <!-- Add Student -->
+    <div class="pms-panel">
+        <div class="pms-panel-content">
+            <div class="pms-icon">➕</div>
+            <h4>Add Student</h4>
+
+            <p>
+                Register a new student into the placement database.
+            </p>
+
+            <a href="{{ url_for('add_student') }}" class="pms-btn pms-btn-primary">
+                Add Student
+            </a>
+        </div>
+    </div>
+
+    <!-- View Students -->
+    <div class="pms-panel">
+        <div class="pms-panel-content">
+            <div class="pms-icon">👨‍🎓</div>
+            <h4>View Students</h4>
+
+            <p>
+                View all student records.
+            </p>
+
+            <a href="{{ url_for('view_students') }}" class="pms-btn pms-btn-success">
+                View
+            </a>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="pms-panel">
+        <div class="pms-panel-content">
+            <div class="pms-icon">🔍</div>
+            <h4>Search Student</h4>
+
+            <p>
+                Search students by Roll Number.
+            </p>
+
+            <a href="{{ url_for('search_student') }}" class="pms-btn pms-btn-warning">
+                Search
+            </a>
+        </div>
+    </div>
+
+    <!-- Update -->
+    <div class="pms-panel">
+        <div class="pms-panel-content">
+            <div class="pms-icon">✏️</div>
+            <h4>Update Student</h4>
+
+            <p>
+                Edit student information.
+            </p>
+
+            <a href="{{ url_for('update_student') }}" class="pms-btn pms-btn-info">
+                Update
+            </a>
+        </div>
+    </div>
+
+    <!-- Delete -->
+    <div class="pms-panel">
+        <div class="pms-panel-content">
+            <div class="pms-icon">❌</div>
+            <h4>Delete Student</h4>
+
+            <p>
+                Remove a student from the database.
+            </p>
+
+            <a href="{{ url_for('delete_student') }}" class="pms-btn pms-btn-danger">
+                Delete
+            </a>
+        </div>
+    </div>
+
+    <!-- Eligible Students -->
+    <div class="pms-panel">
+        <div class="pms-panel-content">
+            <div class="pms-icon">🏆</div>
+            <h4>Eligible Students</h4>
+
+            <p>
+                View students with CGPA 7.5 or above.
+            </p>
+
+            <a href="{{ url_for('eligible_students') }}" class="pms-btn pms-btn-dark">
+                View Eligible
+            </a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

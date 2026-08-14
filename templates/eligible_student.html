@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="pms-panel">
+
+    <div class="pms-panel-heading pms-tone-dark pms-text-center">
+        <h2>
+            Eligible Students (CGPA ≥ 7.5)
+        </h2>
+    </div>
+
+    <div class="pms-panel-content pms-form-area">
+
+        {% if students %}
+
+        <div class="pms-table-scroll">
+            <table class="pms-table">
+
+                <thead class="pms-thead-primary">
+
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>CGPA</th>
+                        <th>Skills</th>
+                        <th>Placement Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for student in students %}
+
+                    <tr>
+
+                        <td>{{ student[0] }}</td>
+                        <td>{{ student[1] }}</td>
+                        <td>{{ student[2] }}</td>
+                        <td>{{ student[3] }}</td>
+                        <td>{{ student[4] }}</td>
+
+                        <td>
+
+                            {% if student[5] == "Placed" %}
+
+                                <span class="pms-tag pms-tag-success">
+                                    Placed
+                                </span>
+
+                            {% else %}
+
+                                <span class="pms-tag pms-tag-warning">
+                                    Not Placed
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+
+        {% else %}
+
+        <div class="pms-notice pms-notice-danger pms-text-center">
+
+            No Eligible Students Found.
+
+        </div>
+
+        {% endif %}
+
+        <div class="pms-text-center pms-mt-3">
+
+            <a href="{{ url_for('home') }}" class="pms-btn pms-btn-primary">
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

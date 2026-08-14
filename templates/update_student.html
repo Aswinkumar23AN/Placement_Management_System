@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="pms-panel">
+
+    <div class="pms-panel-heading pms-tone-info pms-text-center">
+        <h2>Update Student</h2>
+    </div>
+
+    <div class="pms-panel-content pms-form-area">
+
+        <form method="POST">
+
+            <div class="pms-field">
+                <label class="pms-field-label">Roll Number</label>
+                <input
+                    type="number"
+                    class="pms-input"
+                    name="rollno"
+                    placeholder="Enter Roll Number"
+                    required>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Name</label>
+                <input
+                    type="text"
+                    class="pms-input"
+                    name="name"
+                    required>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Department</label>
+                <select
+                    class="pms-select"
+                    name="department"
+                    required>
+
+                    <option>CSE</option>
+                    <option>IT</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>MECH</option>
+                    <option>CIVIL</option>
+
+                </select>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">CGPA</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    max="10"
+                    class="pms-input"
+                    name="cgpa"
+                    required>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Skills</label>
+                <textarea
+                    class="pms-input"
+                    name="skills"
+                    rows="3"></textarea>
+            </div>
+
+            <div class="pms-field">
+                <label class="pms-field-label">Placement Status</label>
+
+                <select
+                    class="pms-select"
+                    name="placement_status">
+
+                    <option>Placed</option>
+                    <option>Not Placed</option>
+
+                </select>
+
+            </div>
+
+            <button class="pms-btn pms-btn-info pms-btn-full">
+
+                Update Student
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

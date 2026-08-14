@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Management System</title>
+
+    <!-- Custom stylesheet: plain CSS only, no framework is loaded -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="pms-navbar">
+        <div class="pms-container">
+
+            <a class="pms-navbar-brand" href="{{ url_for('home') }}">
+                🎓 Placement Management System
+            </a>
+
+            <button class="pms-navbar-toggler" type="button" id="navToggler" aria-label="Toggle navigation">
+                <span class="pms-navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="pms-navbar-nav" id="navbarNav">
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('add_student') }}">Add Student</a>
+                </li>
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('view_students') }}">View Students</a>
+                </li>
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('search_student') }}">Search</a>
+                </li>
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('update_student') }}">Update</a>
+                </li>
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('delete_student') }}">Delete</a>
+                </li>
+
+                <li class="pms-nav-item">
+                    <a class="pms-nav-link" href="{{ url_for('eligible_students') }}">
+                        Eligible Students
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pms-container pms-main">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="pms-footer">
+        <hr>
+        <p>&copy; 2026 Placement Management System | Developed using Flask & MySQL</p>
+    </footer>
+
+    <!-- Plain vanilla JS for mobile nav toggle -->
+    <script>
+        document.getElementById('navToggler').addEventListener('click', function () {
+            document.getElementById('navbarNav').classList.toggle('pms-show');
+        });
+    </script>
+
+</body>
+</html>
