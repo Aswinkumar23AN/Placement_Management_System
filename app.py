@@ -7,13 +7,11 @@ load_dotenv()  # loads DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME from .env
 app = Flask(__name__)
 
 
-# ---------------- HOME ----------------
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-# ---------------- ADD STUDENT ----------------
 @app.route("/add", methods=["GET", "POST"])
 def add_student():
     if request.method == "POST":
@@ -27,11 +25,8 @@ def add_student():
         connection = connect_database()
         cursor = connection.cursor()
 
-        query = """
-        INSERT INTO students
-        (rollno, name, department, cgpa, skills, placement_status)
-        VALUES (%s, %s, %s, %s, %s, %s)
-        """
+        query = """insert into students(rollno, name, department, cgpa, skills, placement_status)
+        v (%s, %s, %s, %s, %s, %s)"""
 
         values = (
             rollno,
@@ -70,7 +65,6 @@ def view_students():
     return render_template("view_students.html", students=students)
 
 
-# ---------------- SEARCH STUDENT ----------------
 @app.route("/search", methods=["GET", "POST"])
 def search_student():
 
@@ -84,7 +78,7 @@ def search_student():
         cursor = connection.cursor()
 
         cursor.execute(
-            "SELECT * FROM students WHERE rollno=%s",
+            "select * from students where rollno=%s",
             (rollno,)
         )
 
@@ -99,7 +93,7 @@ def search_student():
     )
 
 
-# ---------------- UPDATE STUDENT ----------------
+
 @app.route("/update", methods=["GET", "POST"])
 def update_student():
 
@@ -146,7 +140,6 @@ def update_student():
     return render_template("update_student.html")
 
 
-# ---------------- DELETE STUDENT ----------------
 @app.route("/delete", methods=["GET", "POST"])
 def delete_student():
 
@@ -172,7 +165,6 @@ def delete_student():
     return render_template("delete_student.html")
 
 
-# ---------------- ELIGIBLE STUDENTS ----------------
 @app.route("/eligible")
 def eligible_students():
 
@@ -194,6 +186,6 @@ def eligible_students():
     )
 
 
-# ---------------- RUN APPLICATION ----------------
+
 if __name__ == "__main__":
     app.run(debug=True)
